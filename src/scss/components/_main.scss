@@ -89,29 +89,97 @@
     position: relative;
     display: none;
     text-align: center;
-    &.animate__backInRight {
+    .gift{
+      &.animate__backInRight {
       animation: backInRight ease 2s;
-    }
-    @keyframes backInRight {
-      0% {
-        transform: translateX(2000px) scale(0.7);
-        opacity: 0.7;
       }
+      @keyframes backInRight {
+        0% {
+          transform: translateX(2000px) scale(0.7);
+          opacity: 0.7;
+        }
 
-      80% {
-        transform: translateX(0px) scale(0.7);
-        opacity: 0.7;
-      }
+        80% {
+          transform: translateX(0px) scale(0.7);
+          opacity: 0.7;
+        }
 
-      100% {
-        transform: scale(1);
-        opacity: 1;
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
       }
+      .details{
+        width: 100%;
+        .luz {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transform: translate(64px);
+          width: 200px;
+          height: 260px;
+        }
+        .destello {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          z-index: 99;
+          &.pulse1 {
+            animation-name: pulse1;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pulse1 {
+            0% {
+              transform: translate(91px, 130px) scale(0.9);
+              opacity: 0.7;
+            }
+            50% {
+              transform: translate(91px, 130px) scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(91px, 130px) scale(0.9);
+              opacity: 0.7;
+            }
+          }
+        }
+        .destello2 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 40px;
+          height: 40px;
+          z-index: 99;
+          &.pulse2 {
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+          }
+          @keyframes pulse {
+            0% {
+              transform: translate(192px, 45px) scale(0.9);
+              opacity: 0.7;
+            }
+            50% {
+              transform: translate(192px, 45px) scale(1);
+              opacity: 1;
+            }
+            100% {
+              transform: translate(192px, 45px) scale(0.9);
+              opacity: 0.7;
+            }
+          }
+        }
+      
     }
     img {
       width: auto;
       height: 278px;
-    }
+      }
+  }
     .finish__glass {
       &.floating {
         animation-name: floating;
@@ -131,71 +199,7 @@
         }
       }
     }
-    .details{
-      width: 100%;
-      .luz {
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(64px);
-        width: 200px;
-        height: 260px;
-      }
-      .destello {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        z-index: 99;
-        &.pulse1 {
-          animation-name: pulse1;
-          animation-duration: 1.5s;
-          animation-iteration-count: infinite;
-        }
-        @keyframes pulse1 {
-          0% {
-            transform: translate(91px, 130px) scale(0.9);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translate(91px, 130px) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(91px, 130px) scale(0.9);
-            opacity: 0.7;
-          }
-        }
-      }
-      .destello2 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40px;
-        height: 40px;
-        z-index: 99;
-        &.pulse2 {
-          animation-name: pulse;
-          animation-duration: 1.5s;
-          animation-iteration-count: infinite;
-        }
-        @keyframes pulse {
-          0% {
-            transform: translate(192px, 45px) scale(0.9);
-            opacity: 0.7;
-          }
-          50% {
-            transform: translate(192px, 45px) scale(1);
-            opacity: 1;
-          }
-          100% {
-            transform: translate(192px, 45px) scale(0.9);
-            opacity: 0.7;
-          }
-        }
-      }
-    }
+    
     .go__bacardi {
       border: 1px solid white;
       margin: 7px 30px;

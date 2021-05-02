@@ -119,9 +119,10 @@ function finishMojito(){
 function finishContainerInteractive() {
   let preparationContainer = document.querySelector('.container__mojito');
   let giftContainer = document.querySelector('.container__gift');
+  let gift = document.querySelector('.gift');
   preparationContainer.style.display = 'none';
   giftContainer.style.display = 'inherit';
-  giftContainer.classList.add('animate__backInRight');
+  gift.classList.add('animate__backInRight');
 }
 
 function finishContainerInstructions() {
