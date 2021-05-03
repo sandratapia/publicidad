@@ -4,6 +4,7 @@ const glassElements = document.querySelectorAll('.glass');
 const emptyElement = document.querySelector('.empty');
 let draggedElement;
 let lastPositionDrag;
+let disableDragEnd;
 
 const events = {
   mobile: {
@@ -55,13 +56,18 @@ function dragMove (event, mobile) {
   }
 }
 
-function dragEnd(){
-  if(lastPositionDrag === getChildEmptyElement(lastPositionDrag)) {
-    dragDrop();
-  } else {
-    draggedElement.style.display = 'flex';
+function dragEnd(event){
+  if(!disableDragEnd) {
+    event.preventDefault();
+    event.stopPropagation();
+    if(lastPositionDrag === getChildEmptyElement(lastPositionDrag) ) {
+      dragDrop();
+    } else {
+      draggedElement.style.display = 'flex';
+    }
+    draggedElement = undefined;
   }
-  draggedElement = undefined;
+
 }
 
 function getChildEmptyElement(lastPositionSelected) {
@@ -75,9 +81,19 @@ function getChildEmptyElement(lastPositionSelected) {
 }
 
 emptyElement.addEventListener('dragover', dragOver);
+emptyElement.addEventListener('drop', drop);
 
 function dragOver(event) {
   event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  if(lastPositionDrag.parentNode === document){
+    disableDragEnd = true;
+    dragDrop();
+  }
 }
 
 function dragDrop() {
